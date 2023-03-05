@@ -10,6 +10,7 @@ const getProducts = async (req, res) => {
   res.json(products); // 回傳JSON格式的產品資料
 };
 
+// 定義獲取單一產品的控制器函數
 const getProduct = async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {

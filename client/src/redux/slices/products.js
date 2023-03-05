@@ -18,6 +18,11 @@ export const productsSlice = createSlice({
       state.error = null;
       state.products = payload;
     },
+    setProduct: (state, { payload }) => {
+      state.loading = false;
+      state.error = null;
+      state.product = payload;
+    },
     setError: (state, { payload }) => {
       state.error = payload;
       state.loading = false;
@@ -25,7 +30,7 @@ export const productsSlice = createSlice({
   }
 });
 
-export const { setLoading, setError, setProducts } = productsSlice.actions;
+export const { setLoading, setError, setProducts, setProduct } = productsSlice.actions;
 export default productsSlice.reducer;
 
 export const productsSelector = (state) => state.products;

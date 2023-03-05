@@ -18,19 +18,21 @@ const CartOrderSummary = () => {
 
   return (
     <Stack spacing='8' borderWidth='1px' rounded='lg' padding='8' w='full'>
-      <Heading size='md'>Order Summary</Heading>
+      <Heading size='md' align='center'>
+        Order Summary
+      </Heading>
       <Stack spacing='6'>
         <Flex justify='space-between'>
-          <Text fontWeight='md' color={mode('gray.600', 'gray.400')}>
+          <Text fontWeight='medium' color={mode('gray.600', 'gray.400')}>
             Subtotal
           </Text>
-          <Text fontWeight='md'>${subtotal}</Text>
+          <Text fontWeight='medium'>${subtotal}</Text>
         </Flex>
         <Flex justify='space-between'>
-          <Text fontWeight='md' color={mode('gray.600', 'gray.400')}>
+          <Text fontWeight='medium' color={mode('gray.600', 'gray.400')}>
             Shipping
           </Text>
-          <Text fontWeight='md'>
+          <Text fontWeight='medium'>
             {subtotal <= 1000 ? (
               standardShipping
             ) : (
