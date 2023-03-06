@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import ProductsScreen from './screens/ProductsScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
+import Footer from '../src/components/Footer';
+import LandingScreen from './screens/LandingScreen';
 
 function App() {
   return (
@@ -13,11 +15,14 @@ function App() {
         <main>
           <Routes>
             {/* whenever someboby ask for products, I will send them to the ProductsScreen */}
+            <Route path='/' element={<LandingScreen />}></Route>
             <Route path='/products' element={<ProductsScreen />}></Route>
             <Route path='/product/:id' element={<ProductScreen />}></Route>
             <Route path='/cart' element={<CartScreen />}></Route>
           </Routes>
         </main>
+
+        <Footer />
       </Router>
     </ChakraProvider>
   );
