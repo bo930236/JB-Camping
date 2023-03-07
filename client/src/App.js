@@ -6,6 +6,8 @@ import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 import Footer from '../src/components/Footer';
 import LandingScreen from './screens/LandingScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegistrationScreen from './components/RegistrationScreen';
 
 function App() {
   return (
@@ -19,9 +21,10 @@ function App() {
             <Route path='/products' element={<ProductsScreen />}></Route>
             <Route path='/product/:id' element={<ProductScreen />}></Route>
             <Route path='/cart' element={<CartScreen />}></Route>
+            <Route path='/login' element={<LoginScreen />} />
+            <Route path='/registration' element={<RegistrationScreen />} />
           </Routes>
         </main>
-
         <Footer />
       </Router>
     </ChakraProvider>

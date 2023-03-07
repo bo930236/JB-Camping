@@ -3,26 +3,25 @@ import { createSlice } from '@reduxjs/toolkit';
 export const initialState = {
   loading: false,
   error: null,
-  products: [],
-  product: null
+  userInfo: JSON.parse(localStorage.getItem('userInfo')) ?? null
 };
 
-export const productsSlice = createSlice({
-  name: 'products',
+export const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
     setLoading: (state) => {
       state.loading = true;
     },
-    setProducts: (state, { payload }) => {
+    userLogin: (state, { payload }) => {
       state.loading = false;
       state.error = null;
-      state.products = payload;
+      state.userInfo = payload;
     },
-    setProduct: (state, { payload }) => {
+    userLogout: (state) => {
       state.loading = false;
       state.error = null;
-      state.product = payload;
+      state.userInfo = null;
     },
     setError: (state, { payload }) => {
       state.error = payload;
@@ -31,7 +30,7 @@ export const productsSlice = createSlice({
   }
 });
 
-export const { setLoading, setError, setProducts, setProduct } = productsSlice.actions;
-export default productsSlice.reducer;
+export const { setLoading, setError, userLogin, userLogout } = userSlice.actions;
+export default userSlice.reducer;
 
-export const productsSelector = (state) => state.products;
+export const userSelector = (state) => state.user;
