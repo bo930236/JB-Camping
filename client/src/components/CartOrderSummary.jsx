@@ -10,7 +10,7 @@ const CartOrderSummary = () => {
   const cartItems = useSelector((state) => state.cart);
   //Object destructuring to get the subtotal property from cartItems.
   const { subtotal } = cartItems;
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const checkoutHandler = () => {
     setButtonLoading(true);
     navigate('/checkout');

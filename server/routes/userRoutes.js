@@ -14,6 +14,7 @@ const genToken = (id) => {
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
+
   if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user._id,
@@ -24,8 +25,7 @@ const loginUser = asyncHandler(async (req, res) => {
       createdAt: user.createdAt
     });
   } else {
-    res.status(401);
-    throw new Error('Invalid email or password.');
+    res.status(401).json('Invalid email or password');
   }
 });
 
@@ -33,8 +33,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
   const userExits = await User.findOne({ email });
   if (userExits) {
-    res.status(400);
-    throw new Error('We already have an account with that email address.');
+    res.status(400).json('We already have an account with that email address.');
   }
   const user = await User.create({
     name,
@@ -51,8 +50,7 @@ const registerUser = asyncHandler(async (req, res) => {
       createdAt: user.createdAt
     });
   } else {
-    res.json(400);
-    throw new Error('Invalid user data.');
+    res.status(400).json('Invalid user data.');
   }
 });
 const updateUserProfile = asyncHandler(async (req, res) => {
