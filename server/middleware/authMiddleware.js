@@ -11,12 +11,12 @@ const protectRoute = asyncHandler(async (req, res, next) => {
       req.user = User.findById(decoded.id);
       next();
     } catch (error) {
-      res.status(401);
+      res.status(401).send('Not authorized, token failed.');
       throw new Error('Not authorized, token failed.');
     }
   }
   if (!token) {
-    res.status(401);
+    res.status(401).send('Not authorized, no token');
     throw new Error('Not authorized, no token.');
   }
 });
