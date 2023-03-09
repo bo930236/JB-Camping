@@ -19,7 +19,7 @@ License
 ### 套件列表
 
  Just-Buy 專案中使用的套件列表：
-> 前端套件
+#### 前端套件
 - React：用於構建前端 UI。
 - React Router：用於維護前端路由和導航。
 - Axios：用於在前端應用程序和後端 API 之間進行 HTTP 請求。
@@ -29,7 +29,7 @@ License
 - Yup：用於編寫表單驗證規則。
 - React Icons：提供常用圖標的 React 組件。
 - React Toastify：用於顯示通知和警告消息。
->後端套件
+#### 後端套件
 - Node.js：用於構建後端 API。
 - Express：用於構建 Web 應用程序和 API。
 - MongoDB：用於數據存儲和管理。
