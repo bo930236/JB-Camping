@@ -16,7 +16,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
 
-  if (user && (await user.matchPassword(password))) {
+  if (user && (await user.matchPasswords(password))) {
     res.json({
       _id: user._id,
       name: user.name,
@@ -26,21 +26,25 @@ const loginUser = asyncHandler(async (req, res) => {
       createdAt: user.createdAt
     });
   } else {
-    res.status(401).json('Invalid email or password');
+    res.status(401).send('Invalid Email or Password');
+    throw new Error('User not found.');
   }
 });
 
+// POST register user
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-  const userExits = await User.findOne({ email });
-  if (userExits) {
-    res.status(400).json('We already have an account with that email address.');
+  const userExists = await User.findOne({ email });
+  if (userExists) {
+    res.status(400).send('We already have an account with that email address.');
   }
+
   const user = await User.create({
     name,
     email,
     password
   });
+
   if (user) {
     res.status(201).json({
       _id: user._id,
@@ -51,9 +55,11 @@ const registerUser = asyncHandler(async (req, res) => {
       createdAt: user.createdAt
     });
   } else {
-    res.status(400).json('Invalid user data.');
+    res.status(400).send('We could not register you.');
+    throw new Error('Something went wrong. Please check your data and try again.');
   }
 });
+
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.params.id);
 
@@ -63,6 +69,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     if (req.body.password) {
       user.password = req.body.password;
     }
+
     const updatedUser = await user.save();
     res.json({
       _id: updatedUser._id,
@@ -73,11 +80,14 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       createdAt: updatedUser.createdAt
     });
   } else {
-    res.status(404).json('User not found.');
+    res.status(404);
+    throw new Error('User not found.');
   }
 });
+
 const getUserOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({ user: req.params.id });
+
   if (orders) {
     res.json(orders);
   } else {
@@ -85,6 +95,7 @@ const getUserOrders = asyncHandler(async (req, res) => {
     throw new Error('No Orders found');
   }
 });
+
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
   res.json(users);
