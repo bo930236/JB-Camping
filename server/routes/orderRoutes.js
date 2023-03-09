@@ -1,8 +1,7 @@
 import express from 'express';
 import asyncHandler from 'express-async-handler';
 import Order from '../models/Order.js';
-import protectRoute from '../middleware/authMiddleware.js';
-// import { admin, protectRoute } from '../middleware/authMiddleware.js';
+import { admin, protectRoute } from '../middleware/authMiddleware.js';
 
 const orderRoutes = express.Router();
 
@@ -29,7 +28,7 @@ const createOrder = asyncHandler(async (req, res) => {
     res.status(201).json(createdOrder);
   }
 });
-/* 
+
 const getOrders = async (req, res) => {
   const orders = await Order.find({});
   res.json(orders);
@@ -58,10 +57,10 @@ const setDelivered = asyncHandler(async (req, res) => {
     throw new Error('Order could not be updated.');
   }
 });
- */
+
 orderRoutes.route('/').post(protectRoute, createOrder);
-/* orderRoutes.route('/:id').delete(protectRoute, admin, deleteOrder);
+orderRoutes.route('/:id').delete(protectRoute, admin, deleteOrder);
 orderRoutes.route('/:id').put(protectRoute, admin, setDelivered);
-orderRoutes.route('/').get(protectRoute, admin, getOrders); */
+orderRoutes.route('/').get(protectRoute, admin, getOrders);
 
 export default orderRoutes;

@@ -41,7 +41,8 @@ const productSchema = new mongoose.Schema(
     },
     numberOfReviews: {
       type: Number,
-      required: true
+      required: true,
+      default: 0
     },
     price: {
       type: Number,
