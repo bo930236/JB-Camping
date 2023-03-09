@@ -56,17 +56,6 @@ const Footer = () => (
               </Stack>
             </Stack>
           </Stack>
-          {/* <Stack spacing='4'>
-            <Text fontSize='sm' fontWeight='semibold' color='subtle'>
-              Stay up to date
-            </Text>
-            <Stack spacing='4' direction={{ base: 'column', sm: 'row' }} maxW={{ lg: '360px' }}>
-              <Input placeholder='Enter your email' type='email' required />
-              <Button variant='primary' type='submit' flexShrink={0}>
-                Subscribe
-              </Button>
-            </Stack>
-          </Stack> */}
         </Stack>
       </Stack>
       <Divider />
@@ -76,7 +65,12 @@ const Footer = () => (
         </Text>
         <ButtonGroup variant='ghost'>
           <IconButton as='a' href='#' aria-label='LinkedIn' icon={<FaLinkedin fontSize='1.25rem' />} />
-          <IconButton as='a' href='#' aria-label='GitHub' icon={<FaGithub fontSize='1.25rem' />} />
+          <IconButton
+            as='a'
+            href='https://github.com/bo930236/Just-Buy'
+            aria-label='GitHub'
+            icon={<FaGithub fontSize='1.25rem' />}
+          />
           <IconButton as='a' href='#' aria-label='Twitter' icon={<FaTwitter fontSize='1.25rem' />} />
         </ButtonGroup>
       </Stack>
