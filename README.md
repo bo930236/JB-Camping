@@ -5,6 +5,7 @@
 - React Router：用於維護前端路由和導航。
 - Axios：用於在前端應用程序和後端 API 之間進行 HTTP 請求。
 - Chakra UI：用於構建 UI 元素和組件。
+- Formik: 用於表單管理，搭配 Yup 使用。
 - Yup：用於編寫表單驗證規則。
 - React Icons：提供常用圖標的 React 組件。
 - React Toastify：用於顯示通知和警告消息。
@@ -16,7 +17,7 @@
 - Bcrypt：用於實現密碼加密和驗證。
 - Jsonwebtoken：用於實現基於 JSON 的 Web Token 身份驗證。
 - Dotenv：用於管理應用程序的環境變量。
-- authMiddleware(自訂義):用於保護需要驗證的頁面，確保使用者已登入及驗證使用者是否已登入
+- authMiddleware(自訂義):用於保護需要驗證的頁面，確保使用者已登入及驗證使用者是否已登入。
 
 
 
