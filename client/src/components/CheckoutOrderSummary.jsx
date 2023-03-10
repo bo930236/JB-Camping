@@ -91,7 +91,7 @@ const CheckoutOrderSummary = () => {
             Subtotal
           </Text>
           <Text fontWeight='medium' color={colorMode}>
-            {subtotal}
+           ${subtotal}
           </Text>
         </Flex>
         <Flex justify='space-between'>

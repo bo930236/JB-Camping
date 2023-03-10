@@ -24,6 +24,7 @@ const CartItem = ({ cartItem }) => {
       >
         <Select
           maxW='64px'
+          mr='10'
           focusBorderColor={mode('orange.500', 'orange.200')}
           value={qty}
           onChange={(e) => {
