@@ -107,13 +107,15 @@ const ProductScreen = () => {
                     Sold Out
                   </Badge>
                 )}
-                <Heading fontSize='2xl' fontWeight='extrabold'>
+                <Heading fontSize='4xl' fontWeight='extrabold'>
                   {product.name}
                 </Heading>
                 <Stack spacing='5'>
                   <Box>
-                    <Text fontSize='xl'>${product.price}</Text>
-                    <Flex>
+                    <Text fontSize='2xl' fontWeight='bold'>
+                      ${product.price}
+                    </Text>
+                    <Flex mt='3'>
                       <HStack spacing='2px'>
                         <StarIcon color='orange.500' />
                         <StarIcon color={product.rating >= 2 ? 'orange.500' : 'gray.200'} />
@@ -126,7 +128,7 @@ const ProductScreen = () => {
                       </Text>
                     </Flex>
                   </Box>
-                  <Text>{product.description}</Text>
+                  <Text whiteSpace='pre-line'>{product.description}</Text>
                   <Text fontWeight={'bold'}>Quantity</Text>
                   <Flex w='170px' p='5px' border='1px' borderColor='gray.200' alignItems='center'>
                     <Button isDisabled={amount <= 1} onClick={() => changeAmount('minus')}>

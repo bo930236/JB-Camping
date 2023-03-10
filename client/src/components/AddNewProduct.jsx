@@ -42,7 +42,7 @@ const AddNewProduct = () => {
           <InputLeftAddon children='Image File Name' />
         </InputGroup>
         <Tooltip label={'Set the name of your image e.g., iPhone.jpg'} fontSize='sm'>
-          <Input size='sm' value={image} onChange={(e) => setImage(e.target.value)} placeholder='e.g., iPhone.jpg' />
+          <Input size='sm' value={image} onChange={(e) => setImage(e.target.value)} placeholder='e.g., snowpeak.jpg' />
         </Tooltip>
       </Td>
       <Td>
@@ -68,12 +68,12 @@ const AddNewProduct = () => {
               size='sm'
               value={brand}
               onChange={(e) => setBrand(e.target.value)}
-              placeholder='Apple or Samsung etc.'
+              placeholder='Coleman or LOGOS etc.'
             />
           </InputGroup>
           <InputGroup size='sm'>
             <InputLeftAddon children='Name' />
-            <Input size='sm' value={name} onChange={(e) => setName(e.target.value)} placeholder='iPhone 14 Pro 512G' />
+            <Input size='sm' value={name} onChange={(e) => setName(e.target.value)} placeholder='黑鹿雙人椅' />
           </InputGroup>
         </Flex>
       </Td>
@@ -82,11 +82,16 @@ const AddNewProduct = () => {
         <Flex direction='column' gap='2'>
           <InputGroup size='sm'>
             <InputLeftAddon children='Category' />
-            <Input size='sm' value={category} onChange={(e) => setCategory(e.target.value)} placeholder='Electronics' />
+            <Input
+              size='sm'
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              placeholder='Basic equipment/ Camping facilities/Outdoor activities'
+            />
           </InputGroup>
           <InputGroup size='sm'>
             <InputLeftAddon children='Price Tag' />
-            <Input size='sm' value={price} onChange={(e) => setPrice(e.target.value)} placeholder='299.99' />
+            <Input size='sm' value={price} onChange={(e) => setPrice(e.target.value)} placeholder='1399' />
           </InputGroup>
         </Flex>
       </Td>
@@ -95,7 +100,7 @@ const AddNewProduct = () => {
         <Flex direction='column' gap='2'>
           <InputGroup size='sm'>
             <InputLeftAddon children='Stock' />
-            <Input size='sm' value={stock} onChange={(e) => setStock(e.target.value)} />
+            <Input size='sm' value={stock} onChange={(e) => setStock(e.target.value)} placeholder='20' />
           </InputGroup>
           <Text ml='2' fontSize='sm'>
             New badge shown on product card

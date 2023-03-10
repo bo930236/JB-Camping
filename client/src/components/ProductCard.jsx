@@ -73,10 +73,11 @@ const ProductCard = ({ product }) => {
       rounded='lg'
       shadow='lg'
       position='relative'
+      alignItems='center'
     >
       {product.productIsNew && <Circle size='10px' position='absolute' top={2} right={2} bg='green.300' />}
       {product.stock <= 0 && <Circle size='10px' position='absolute' top={2} right={2} bg='red.300' />}
-      <Image p={4} src={product.image} alt={product.name} roundedTop='lg' />
+      <Image p={3} width='220px' height='220px' src={product.image} alt={product.name} roundedTop='lg' />
       <Box flex='1' maxH='5' alignItems='baseline'>
         {product.stock <= 0 && (
           <Badge rounded='full' px='2' fontSize='0.8em' colorScheme='red'>
@@ -89,22 +90,24 @@ const ProductCard = ({ product }) => {
           </Badge>
         )}
       </Box>
-      <Flex mt='1' justifyContent='space-between' alignContent='center'>
-        <Link as={ReactLink} to={`/product/${product._id}`} pt='2' cursor='pointer'>
-          <Box fontSize='2xl' fontWeight='semibold' lineHeight='tight'>
-            {product.name}
+      <Flex mt='1' justifyContent='center' alignContent='center'>
+        <Link as={ReactLink} to={`/product/${product._id}`} pt='3' cursor='pointer'>
+          <Box h='50px'>
+            <Text fontSize='2xl' fontWeight='semibold' lineHeight='tight' noOfLines={2} align='center'>
+              {product.name}
+            </Text>
           </Box>
         </Link>
       </Flex>
-      <Flex justifyContent='space-between' alignContent='center' py='2'>
+      <Flex justifyContent='space-between' alignContent='center' pt='7' pb='4'>
         <Rating rating={product.rating} numberOfReviews={product.numberOfReviews} />
       </Flex>
       <Flex justify='space-between'>
         <Box fontSize='2xl' color={useColorModeValue('gray.800', 'white')}>
-          <Box as='span' color={'gray.600'} fontSize='lg'>
+          <Box as='span' color={'gray.700'} fontSize='xl' mr='1'>
             $
           </Box>
-          {Number(product.price.toFixed(2))}
+          {Number(product.price.toFixed(0))}
         </Box>
         <Tooltip label='Add to cart' bg='white' placement='top' color='gray.800' fontSize='1.2em'>
           <Button variant='ghost' display='flex' isDisabled={product.stock <= 0} onClick={() => addItem(product._id)}>

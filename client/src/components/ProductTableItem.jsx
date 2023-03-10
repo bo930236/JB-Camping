@@ -57,6 +57,7 @@ const ProductTableItem = ({ product }) => {
           <Textarea
             w='270px'
             h='120px'
+            whiteSpace='pre-line'
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             size='sm'

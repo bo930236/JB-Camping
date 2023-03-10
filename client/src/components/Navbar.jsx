@@ -23,7 +23,7 @@ import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon, ChevronDownIcon } from '@c
 import { CgProfile } from 'react-icons/cg';
 import { MdOutlineAdminPanelSettings, MdLocalShipping, MdLogout } from 'react-icons/md';
 import { FiShoppingCart } from 'react-icons/fi';
-import { GiTechnoHeart } from 'react-icons/gi';
+import { GiCampingTent } from 'react-icons/gi';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/actions/userActions';
@@ -98,8 +98,8 @@ const Navbar = () => {
             onMouseLeave={() => setIsHovering(false)}
           >
             <Flex alignItems='center'>
-              <Icon as={GiTechnoHeart} h={6} w={6} color={isHovering ? 'cyan.400' : 'orange.400'} />
-              <Text fontWeight='extrabold'>Just Buy</Text>
+              <Icon as={GiCampingTent} h={6} w={6} color={isHovering ? 'green.600' : 'orange.400'} mr='0.5' />
+              <Text fontWeight='extrabold'>JB Camping</Text>
             </Flex>
           </Link>
           <HStack as='nav' spacing={4} display={{ base: 'none', md: 'flex' }}>
