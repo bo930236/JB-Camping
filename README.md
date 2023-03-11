@@ -13,7 +13,7 @@
 ---
 ### 套件列表
 
- Just-Buy 專案中使用的套件列表：
+JB-Camping 專案中使用的套件列表：
 #### 前端套件
 - React：用於構建前端 UI。
 - React Router：用於維護前端路由和導航。
@@ -37,7 +37,7 @@
 ----
 ### 專案資料架構
 ```
-Just-Buy
+JB-Camping
 ├─ .git
 ├─ .gitignore
 ├─ client
