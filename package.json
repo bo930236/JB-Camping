@@ -1,7 +1,7 @@
 {
-  "name": "just-buy",
+  "name": "jb-camping",
   "version": "1.0.0",
-  "description": "The backend for Just-Buy",
+  "description": "The backend for JB-Camping",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bo930236/Just-Buy.git"
+    "url": "git+https://github.com/bo930236/JB-Camping.git"
   },
   "author": "bo930236",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bo930236/Just-Buy/issues"
+    "url": "https://github.com/bo930236/JB-Camping/issues"
   },
-  "homepage": "https://github.com/bo930236/Just-Buy#readme",
+  "homepage": "https://github.com/bo930236/JB-Camping#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^7.6.0",
