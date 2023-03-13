@@ -7,9 +7,9 @@
   - [功能介紹](#功能介紹)
     - [前台](#前台)
     - [後台](#後台)
-  - [專案 DEMO](#專案 DEMO)
   - [專案資料架構](#專案資料架構)
   - [專案建置](#專案建置)
+  - [聲明](#聲明)
 
 ---
 ### 專案
@@ -75,8 +75,6 @@
   + 查看訂單列表、詳細資料
   + 管理訂單狀態，並可直接移除訂單
   
-### 專案 DEMO
-
 ### 專案資料架構
 ```
 JB-Camping
@@ -159,14 +157,30 @@ JB-Camping
       └─ userRoutes.js
 ```
 ### 專案建置
+- 安裝套件
+```
 npm install
-安裝此專案所需的第三方套件
+```
+- 建立 .env 設定環境變數
+```
+MONGO_URI =<MongoDB 資料庫的連線網址。>
 
-yarn start
-在 http://localhost:3000 上啟動此專案
+PAYPAL_CLIENT_ID = <Paypal 的 Client ID，可以在 Paypal 的開發者網站上取得。>
 
-yarn build
-在 build 資料夾中建立此專案的 production 版本
+PORT = <應用程式運行端口。>
 
-yarn deploy
-在 GitHub Page 上部屬此專案網站
+TOKEN_SECRET = <用於 JWT 的密鑰，可以是任意字串。>
+
+NODE_ENV = production <應用程式的執行環境，可以是 `development` 或 `production`。>
+```
+- 啟動應用程式
+```
+npm run start
+```
+- 同時啟動應用程式和React應用程式。
+```
+npm run app
+```
+
+### 聲明
+- 本網站僅作為個人練習，不作任何商業用途，註冊時請勿使用真實資料。
