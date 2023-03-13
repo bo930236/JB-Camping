@@ -34,12 +34,12 @@ const CheckoutOrderSummary = () => {
   const toast = useToast();
 
   const shipping = useCallback(
-    () => (expressShipping === 'true' ? 14.99 : subtotal <= 1000 ? 4.99 : 0),
+    () => (expressShipping === 'true' ? 120 : subtotal <= 1000 ? 60 : 0),
     [expressShipping, subtotal]
   );
 
   const total = useCallback(
-    () => Number(shipping() === 0 ? Number(subtotal) : Number(subtotal) + shipping()).toFixed(2),
+    () => Number(shipping() === 0 ? Number(subtotal) : Number(subtotal) + shipping()).toFixed(0),
     [shipping, subtotal]
   );
 
@@ -91,7 +91,7 @@ const CheckoutOrderSummary = () => {
             Subtotal
           </Text>
           <Text fontWeight='medium' color={colorMode}>
-           ${subtotal}
+            ${subtotal}
           </Text>
         </Flex>
         <Flex justify='space-between'>

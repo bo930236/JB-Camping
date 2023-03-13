@@ -145,7 +145,7 @@ const ProductScreen = () => {
                   <Stack width='270px'>
                     <Flex alignItems='center'>
                       <BiPackage size='20px' />
-                      <Text fontSize='sm' fontWeight='medium' ml='2'>
+                      <Text fontSize='sm' fontWeight='medium' ml='2'white-space:nowrap>
                         Free shipping if order is above $1000
                       </Text>
                     </Flex>
@@ -210,7 +210,7 @@ const ProductScreen = () => {
                       onChange={(e) => {
                         setTitle(e.target.value);
                       }}
-                      placeholder='Review title (optional)'
+                      placeholder='Review title'
                     />
                     <Textarea onChange={(e) => setComment(e.target.value)} placeholder={`The ${product.name} is...`} />
                     <Button w='140px' colorScheme='orange' onClick={() => onSubmit()}>
