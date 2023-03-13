@@ -22,22 +22,24 @@
 ### 使用技術和第三方套件
 #### 前端套件
 - React：用於構建前端 UI。
-- React Router：用於維護前端路由和導航。
+- Create React App: 建立專案項目環境。
+- React Router：Web App 路由管理。
 - Axios：用於在前端應用程序和後端 API 之間進行 HTTP 請求。
 - Chakra UI：用於構建 UI 元素和組件。
 - Formik: 用於表單管理，搭配 Yup 使用。
 - Yup：用於編寫表單驗證規則。
 - React Icons：提供常用圖標的 React 組件。
-- React-Paypal-Js: 用於PayPal付款相關。
+- React-Paypal-Js: 用於 PayPal 付款相關。
+
 #### 後端套件
-- Node.js：用於構建後端 API。
-- Express：用於構建 Web 應用程序和 API。
-- MongoDB：用於數據存儲和管理。
-- Mongoose：用於在 Node.js 中與 MongoDB 進行數據庫操作。
-- Bcrypt：用於實現密碼加密和驗證。
-- Jsonwebtoken：用於實現基於 JSON 的 Web Token 身份驗證。
-- Dotenv：用於管理應用程序的環境變量。
-- authMiddleware(自訂義):用於保護需要驗證的頁面，確保使用者已登入及驗證使用者是否已登入。
+- bcryptjs: 用於加密。
+- concurrently: 用於同時執行多個命令。
+- dotenv: 設定與存取環境變數。
+- express: 用於建立後端伺服器。
+- express-async-handler: 用於處理異步的 express 路由。
+- jsonwebtoken: 簽署 token 實作使用者身分驗證。
+- mongoose: 用於連接 MongoDB 資料庫。
+- authMiddleware(自訂義): 用於保護需要驗證的頁面，確保使用者已登入及驗證使用者是否已登入。
 ----
 ### 功能介紹
 #### 前台
@@ -173,11 +175,11 @@ TOKEN_SECRET = <用於 JWT 的密鑰，可以是任意字串。>
 
 NODE_ENV = production <應用程式的執行環境，可以是 `development` 或 `production`。>
 ```
-- 啟動應用程式
+- 啟動後端伺服器
 ```
 npm run start
 ```
-- 同時啟動應用程式和React應用程式。
+- 同時啟動前後端
 ```
 npm run app
 ```
