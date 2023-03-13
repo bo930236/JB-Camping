@@ -8,7 +8,6 @@ import {
   Stack,
   Text,
   useBreakpointValue,
-  useColorModeValue as mode,
   AlertIcon,
   AlertTitle,
   Alert,
@@ -17,15 +16,16 @@ import {
 } from '@chakra-ui/react';
 import TextField from '../components/TextField';
 import PasswordTextField from '../components/PasswordTextField';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, Link as ReactLink } from 'react-router-dom';
+import { useNavigate, Link as ReactLink, useLocation } from 'react-router-dom';
 import { register } from '../redux/actions/userActions';
 
 const RegistrationScreen = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const { loading, error, userInfo } = user;
@@ -34,16 +34,16 @@ const RegistrationScreen = () => {
   const headingBR = useBreakpointValue({ base: 'xs', md: 'sm' });
   const boxBR = useBreakpointValue({ base: 'transparent', md: 'bg-surface' });
 
-  useEffect(() => {
-    if (userInfo) {
-      navigate(redirect);
-      toast({
-        description: 'Account created. Welcome aboard Just Buy.',
-        status: 'success',
-        isClosable: true
-      });
-    }
-  }, [userInfo, redirect, error, navigate, toast]);
+   useEffect(() => {
+     if (userInfo) {
+       if (location.state?.from) {
+         navigate(location.state.from);
+       } else {
+         navigate(redirect);
+       }
+       toast({ description: 'Account created. Welcome aboard JB Camping.', status: 'success', isClosable: true });
+     }
+   }, [userInfo, redirect, navigate, location.state, toast, error]);
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '' }}

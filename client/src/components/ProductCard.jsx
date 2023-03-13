@@ -1,6 +1,5 @@
 import {
   Flex,
-  Circle,
   Box,
   Image,
   Badge,
@@ -75,8 +74,6 @@ const ProductCard = ({ product }) => {
       position='relative'
       alignItems='center'
     >
-      {product.productIsNew && <Circle size='10px' position='absolute' top={2} right={2} bg='green.300' />}
-      {product.stock <= 0 && <Circle size='10px' position='absolute' top={2} right={2} bg='red.300' />}
       <Image p={3} width='220px' height='220px' src={product.image} alt={product.name} roundedTop='lg' />
       <Box flex='1' maxH='5' alignItems='baseline'>
         {product.stock <= 0 && (
