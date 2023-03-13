@@ -1,4 +1,14 @@
-import { CloseButton, Flex, Select, useColorMode as mode, Stack, Image, Box, Text, Divider } from '@chakra-ui/react';
+import {
+  CloseButton,
+  Flex,
+  Select,
+  useColorModeValue as mode,
+  Stack,
+  Image,
+  Box,
+  Text,
+  Divider
+} from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { addCartItem, removeCartItem } from '../redux/actions/cartActions';
 

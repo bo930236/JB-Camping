@@ -34,16 +34,16 @@ const RegistrationScreen = () => {
   const headingBR = useBreakpointValue({ base: 'xs', md: 'sm' });
   const boxBR = useBreakpointValue({ base: 'transparent', md: 'bg-surface' });
 
-   useEffect(() => {
-     if (userInfo) {
-       if (location.state?.from) {
-         navigate(location.state.from);
-       } else {
-         navigate(redirect);
-       }
-       toast({ description: 'Account created. Welcome aboard JB Camping.', status: 'success', isClosable: true });
-     }
-   }, [userInfo, redirect, navigate, location.state, toast, error]);
+  useEffect(() => {
+    if (userInfo) {
+      if (location.state?.from) {
+        navigate(location.state.from);
+      } else {
+        navigate(redirect);
+      }
+      toast({ description: 'Account created. Welcome aboard JB Camping.', status: 'success', isClosable: true });
+    }
+  }, [userInfo, redirect, navigate, location.state, toast, error]);
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
