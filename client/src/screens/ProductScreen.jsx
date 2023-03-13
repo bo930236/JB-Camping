@@ -145,7 +145,7 @@ const ProductScreen = () => {
                   <Stack width='270px'>
                     <Flex alignItems='center'>
                       <BiPackage size='20px' />
-                      <Text fontSize='sm' fontWeight='medium' ml='2'white-space:nowrap>
+                      <Text fontSize='sm' fontWeight='medium' ml='2' white-space='nowrap'>
                         Free shipping if order is above $1000
                       </Text>
                     </Flex>
