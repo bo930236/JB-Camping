@@ -1,6 +1,6 @@
 ### JB Camping 露營選物
 
-- 使用 React 框架搭建前端，並使用 Node.js / Express & MongoDB 建立完善的後端系統，透過 RESTful API 實現前後端分離，為虛構的露營選物品牌 JB Camping 打造購物網站及管理後台。  
+- 使用 React 搭配 Chakra UI 搭建前端，並使用 Node.js / Express & MongoDB 建立完善的後端系統，透過 RESTful API 實現前後端分離，為虛構的露營選物品牌 JB Camping 打造購物網站及管理後台。  
 - 使用者分為一般消費者和店家管理員，消費者可以在前台網站享受流暢的購物體驗、管理會員資料及查看訂單紀錄，而管理員則可以在後台針對「會員」、「評論」、「商品」和「訂單」四大區塊進行管理。
 
 >[JB Camping 網站連結](https://jb-camping.onrender.com "JB Camping")
