@@ -17,6 +17,7 @@ import { createOrder, resetOrder } from '../redux/actions/orderActions';
 import { useEffect, useState, useCallback } from 'react';
 import CheckoutItem from './CheckoutItem';
 import PayPalButton from './PayPalButton';
+
 import { resetCart } from '../redux/actions/cartActions';
 import { useNavigate } from 'react-router-dom';
 
@@ -73,6 +74,7 @@ const CheckoutOrderSummary = () => {
       description:
         'Something went wrong during the payment process. Please try again or make sure that your PayPal account balance is enough for this purchase.',
       status: 'error',
+
       duration: '600000',
       isClosable: true
     });
@@ -91,7 +93,7 @@ const CheckoutOrderSummary = () => {
             Subtotal
           </Text>
           <Text fontWeight='medium' color={colorMode}>
-            ${subtotal}
+            {subtotal}
           </Text>
         </Flex>
         <Flex justify='space-between'>
@@ -144,7 +146,7 @@ const CheckoutOrderSummary = () => {
       <Divider bg={mode('gray.400', 'gray.800')} />
       <Flex justifyContent='center' my='6' fontWeight='semibold'>
         <p>or</p>
-        <Link as={ReactLink} to='/products' ml='2' color={mode('orange.500', 'orange.200')}>
+        <Link as={ReactLink} to='/products' ml='1'>
           Continue Shopping
         </Link>
       </Flex>

@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Checkbox,
   Container,
   FormControl,
   Heading,
@@ -9,14 +8,13 @@ import {
   Stack,
   Text,
   useBreakpointValue,
-  useColorModeValue,
   Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription,
   useToast
 } from '@chakra-ui/react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,7 +23,6 @@ import PasswordTextField from '../components/PasswordTextField';
 import TextField from '../components/TextField';
 import { login } from '../redux/actions/userActions';
 
-//TODO: redefine password length
 const LoginScreen = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -47,6 +44,7 @@ const LoginScreen = () => {
       }
       toast({
         description: 'Login successful.',
+        duration: 1000,
         status: 'success',
         isClosable: true
       });

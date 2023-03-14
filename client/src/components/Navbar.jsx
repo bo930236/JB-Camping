@@ -76,6 +76,7 @@ const Navbar = () => {
     dispatch(logout());
     toast({
       description: 'You have been logout.',
+      duration: 1000,
       status: 'success',
       isClosable: true
     });

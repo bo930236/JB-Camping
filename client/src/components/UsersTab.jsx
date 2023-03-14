@@ -39,7 +39,7 @@ const UsersTab = () => {
     dispatch(getAllUsers());
     dispatch(resetErrorAndRemoval());
     if (userRemoval) {
-      toast({ description: 'User has been removed.', status: 'success', isClosable: true });
+      toast({ description: 'User has been removed.', duration: 1000, status: 'success', isClosable: true });
     }
   }, [userRemoval, dispatch, toast]);
 

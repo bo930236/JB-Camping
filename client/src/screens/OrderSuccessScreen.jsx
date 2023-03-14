@@ -9,7 +9,7 @@ const OrderSuccessScreen = () => {
   const toast = useToast();
   const logoutHandler = () => {
     dispatch(logout());
-    toast({ description: 'You have been logged out.', status: 'success', isClosable: true });
+    toast({ description: 'You have been logged out.', duration: 1000, status: 'success', isClosable: true });
     navigate('/products');
   };
   return (

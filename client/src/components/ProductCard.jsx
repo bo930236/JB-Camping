@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addCartItem } from '../redux/actions/cartActions';
 
 const Rating = ({ rating, numberOfReviews }) => {
-  const { iconSize, setIconSize } = useState('14px');
+  const { iconSize } = useState('14px');
   return (
     <Flex>
       <HStack spacing='2px'>
@@ -48,6 +48,7 @@ const ProductCard = ({ product }) => {
     if (cart.some((cartItem) => cartItem.id === id)) {
       toast({
         description: 'This item is already in your cart. Go to your cart to change the amount.',
+        duration: 1500,
         status: 'error',
         isClosable: true
       });
@@ -55,6 +56,7 @@ const ProductCard = ({ product }) => {
       dispatch(addCartItem(id, 1));
       toast({
         description: 'Item has been added.',
+        duration: 1000,
         status: 'success',
         isClosable: true
       });
@@ -101,7 +103,7 @@ const ProductCard = ({ product }) => {
       </Flex>
       <Flex justify='space-between'>
         <Box fontSize='2xl' color={useColorModeValue('gray.800', 'white')}>
-          <Box as='span' color={'gray.700'} fontSize='xl' mr='1'>
+          <Box as='span' color={useColorModeValue('gray.800', 'white')} fontSize='xl' mr='1'>
             $
           </Box>
           {Number(product.price.toFixed(0))}

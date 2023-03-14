@@ -3,9 +3,7 @@ import {
   Button,
   FormControl,
   Heading,
-  HStack,
   Stack,
-  Text,
   AlertIcon,
   AlertTitle,
   AlertDescription,
@@ -19,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 import TextField from '../components/TextField';
 import PasswordTextField from '../components/PasswordTextField';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,10 +34,10 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     if (updateSuccess) {
-      toast({ description: 'Profile saved.', status: 'success', isClosable: true });
+      toast({ description: 'Profile saved.', duration: 1000, status: 'success', isClosable: true });
       dispatch(resetUpdateSuccess());
     }
-  }, [toast, updateSuccess]);
+  }, [dispatch, toast, updateSuccess]);
 
   return userInfo ? (
     <Formik

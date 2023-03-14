@@ -8,7 +8,6 @@ const CartOrderSummary = () => {
   const [buttonLoading, setButtonLoading] = useState();
   const standardShipping = Number(60).toFixed(0);
   const cartItems = useSelector((state) => state.cart);
-  //Object destructuring to get the subtotal property from cartItems.
   const { subtotal } = cartItems;
   const navigate = useNavigate();
   const checkoutHandler = () => {

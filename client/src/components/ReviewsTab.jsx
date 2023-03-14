@@ -42,7 +42,7 @@ const ReviewsTab = () => {
     dispatch(getProducts());
     dispatch(resetProductError());
     if (reviewRemoval) {
-      toast({ description: 'Review has been removed.', status: 'success', isClosable: true });
+      toast({ description: 'Review has been removed.', duration: 1000, status: 'success', isClosable: true });
     }
   }, [toast, dispatch, reviewRemoval, loading]);
 

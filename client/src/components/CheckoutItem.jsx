@@ -1,4 +1,4 @@
-import { Flex, Select, useColorModeValue as mode, Image, Box, Text, Spacer, Divider } from '@chakra-ui/react';
+import { Flex, Select, useColorModeValue as mode, Image, Box, Text, Divider, Spacer } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { addCartItem } from '../redux/actions/cartActions';
 

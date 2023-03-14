@@ -37,7 +37,7 @@ const ProductsTab = () => {
     dispatch(getProducts());
     dispatch(resetProductError());
     if (productUpdate) {
-      toast({ description: 'Product has been updated.', status: 'success', isClosable: true });
+      toast({ description: 'Product has been updated.', duration: 1000, status: 'success', isClosable: true });
     }
   }, [dispatch, toast, productUpdate]);
 

@@ -41,11 +41,13 @@ const ProductScreen = () => {
   const { loading, error, product, reviewSend } = productList;
   const user = useSelector((state) => state.user);
   const { userInfo } = user;
+  const cartInfo = useSelector((state) => state.cart);
+  const { cart } = cartInfo;
 
   useEffect(() => {
     dispatch(getProduct(id));
     if (reviewSend) {
-      toast({ description: 'Product review saved.', status: 'success', isClosable: true });
+      toast({ description: 'Product review saved.', duration: 1000, status: 'success', isClosable: true });
       dispatch(resetProductError());
       setReviewBoxOpen(false);
     }
@@ -64,10 +66,23 @@ const ProductScreen = () => {
   const onSubmit = () => {
     dispatch(createProductReview(product._id, userInfo._id, comment, rating, title));
   };
-
-  const addItem = () => {
-    dispatch(addCartItem(product._id, amount));
-    toast({ description: 'Item has been added.', status: 'success', isClosable: true });
+  const addItem = (id) => {
+    if (cart.some((cartItem) => cartItem.id === id)) {
+      toast({
+        description: 'This item is already in your cart. Go to your cart to change the amount.',
+        duration: 1500,
+        status: 'error',
+        isClosable: true
+      });
+    } else {
+      dispatch(addCartItem(product._id, amount));
+      toast({
+        description: 'Item has been added.',
+        duration: 1000,
+        status: 'success',
+        isClosable: true
+      });
+    }
   };
 
   return (
@@ -139,7 +154,7 @@ const ProductScreen = () => {
                       <SmallAddIcon w='20px' h='25px' />
                     </Button>
                   </Flex>
-                  <Button isDisabled={product.stock === 0} colorScheme='orange' onClick={() => addItem()}>
+                  <Button isDisabled={product.stock === 0} colorScheme='orange' onClick={() => addItem(product._id)}>
                     Add to cart
                   </Button>
                   <Stack width='270px'>

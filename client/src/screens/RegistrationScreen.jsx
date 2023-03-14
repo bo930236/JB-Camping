@@ -41,7 +41,12 @@ const RegistrationScreen = () => {
       } else {
         navigate(redirect);
       }
-      toast({ description: 'Account created. Welcome aboard JB Camping.', status: 'success', isClosable: true });
+      toast({
+        description: 'Account created. Welcome aboard JB Camping.',
+        duration: 1500,
+        status: 'success',
+        isClosable: true
+      });
     }
   }, [userInfo, redirect, navigate, location.state, toast, error]);
   return (

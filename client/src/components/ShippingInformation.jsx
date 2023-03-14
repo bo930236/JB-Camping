@@ -2,24 +2,23 @@ import { Box, Heading, VStack, FormControl, Flex, Stack, Text, Radio, RadioGroup
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import TextField from './TextField';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setExpress } from '../redux/actions/cartActions';
-import { useState } from 'react';
 import { setShippingAddress, setShippingAddressError } from '../redux/actions/orderActions';
 
 const ShippingInformation = () => {
   const dispatch = useDispatch();
-  const [formStateChanged, setFormStateChanged] = useState(false);
+  const cartInfo = useSelector((state) => state.cart);
+  const { expressShipping } = cartInfo;
 
-  const setErrorState = (input, data) => {
-    if (!input) {
-      dispatch(setShippingAddress(data));
-    }
-    if ((!formStateChanged && !input) || (formStateChanged && input)) {
-      return;
-    } else {
-      setFormStateChanged(input);
-      dispatch(setShippingAddressError(input));
+  const setErrorState = (hasError, data) => {
+    if (typeof hasError === 'boolean') {
+      if (hasError) {
+        dispatch(setShippingAddressError(true));
+      } else {
+        dispatch(setShippingAddress(data));
+        dispatch(setShippingAddressError(false));
+      }
     }
   };
 
@@ -43,6 +42,7 @@ const ShippingInformation = () => {
             }
           >
             <TextField name='address' placeholder='Street Address' label='Street Address' />
+
             <Flex>
               <Box flex='1' mr='10'>
                 <TextField name='postalCode' placeholder='Postal Code' label='Postal Code' type='number' />
@@ -58,7 +58,7 @@ const ShippingInformation = () => {
               Shipping Method
             </Heading>
             <RadioGroup
-              defaultValue='false'
+              defaultValue={expressShipping ? 'true' : 'false'}
               onChange={(e) => {
                 dispatch(setExpress(e));
               }}
@@ -67,7 +67,7 @@ const ShippingInformation = () => {
                 <Stack pr='10' spacing={{ base: '8', md: '10' }} flex='1.5'>
                   <Box>
                     <Radio value='true'>
-                      <Text fontWeight='bold'>Express $120</Text>
+                      <Text fontWeight='bold'>Express $60</Text>
                       <Text>Dispatched in 24 hours.</Text>
                     </Radio>
                   </Box>
@@ -76,8 +76,8 @@ const ShippingInformation = () => {
                 <Radio value='false'>
                   <Tooltip label='Free shipping for orders of $1000 or more!'>
                     <Box>
-                      <Text fontWeight='bold'>Standard $60</Text>
-                      <Text>Dispatched in 2 - 3 days</Text>
+                      <Text fontWeight='bold'>Standard $120</Text>
+                      <Text>Dispatched in 2-3 days.</Text>
                     </Box>
                   </Tooltip>
                 </Radio>

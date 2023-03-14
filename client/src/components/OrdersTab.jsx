@@ -40,10 +40,10 @@ const OrdersTab = () => {
     dispatch(getAllOrders());
     dispatch(resetErrorAndRemoval());
     if (orderRemoval) {
-      toast({ description: 'Order has been removed.', status: 'success', isClosable: true });
+      toast({ description: 'Order has been removed.', duration: 1000, status: 'success', isClosable: true });
     }
     if (deliveredFlag) {
-      toast({ description: 'Order has been set to delivered.', status: 'success', isClosable: true });
+      toast({ description: 'Order has been set to delivered.', duration: 1000, status: 'success', isClosable: true });
     }
   }, [orderRemoval, dispatch, toast, deliveredFlag]);
 
