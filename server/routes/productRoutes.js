@@ -5,19 +5,27 @@ import asyncHandler from 'express-async-handler';
 import { protectRoute, admin } from '../middleware/authMiddleware.js';
 
 const productRoutes = express.Router();
-
 const getProducts = async (req, res) => {
-  const products = await Product.find({});
-  res.json(products);
+  try {
+    const products = await Product.find({});
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Product not found.' });
+  }
 };
 
 const getProduct = async (req, res) => {
-  const product = await Product.findById(req.params.id);
+  try {
+    const product = await Product.findById(req.params.id);
 
-  if (product) {
-    res.json(product);
-  } else {
-    res.status(404).json('Product not found.');
+    if (product) {
+      res.json(product);
+    } else {
+      res.status(404);
+      throw new Error('Product not found.');
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Product not found.' });
   }
 };
 
