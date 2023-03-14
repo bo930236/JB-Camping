@@ -14,9 +14,13 @@
 ---
 ### 專案
 **JB Camping 露營選物**  
-這是一個使用 React 建立的電子商務前端專案，為虛構的露營選物品牌 JB Camping 打造購物網站及管理後台。使用者分為一般消費者和店家管理員，消費者可以在前台網站享受流暢的購物體驗、管理會員資料及查看訂單紀錄，而管理員則可以在後台針對「會員」、「評論」、「商品」和「訂單」四大區塊進行管理。
->[JB Camping 網站連結](https://jb-camping.onrender.com "JB Camping")
 
+這是一個使用 React 建立的電子商務前端專案，為虛構的露營選物品牌 JB Camping 打造購物網站及管理後台。使用者分為一般消費者和店家管理員，消費者可以在前台網站享受流暢的購物體驗、管理會員資料及查看訂單紀錄，而管理員則可以在後台針對「會員」、「評論」、「商品」和「訂單」四大區塊進行管理。
+
+![](https://github.com/bo930236/JB-Camping/blob/master/user-demo.gif)
+
+>[JB Camping 網站連結](https://jb-camping.onrender.com "JB Camping")
+>
 > 管理後台：測試帳號: admin@web.com / 密碼: admin123
 ---
 ### 使用技術和第三方套件
