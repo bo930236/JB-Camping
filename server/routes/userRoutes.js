@@ -7,7 +7,6 @@ import { protectRoute, admin } from '../middleware/authMiddleware.js';
 
 const userRoutes = express.Router();
 
-//TODO: redefine expiresIn
 const genToken = (id) => {
   return jwt.sign({ id }, process.env.TOKEN_SECRET, { expiresIn: '60d' });
 };
@@ -27,7 +26,7 @@ const loginUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(401).send('Invalid Email or Password');
-    throw new Error('User not found.');
+    throw new Error('Invalid Email or Password');
   }
 });
 
