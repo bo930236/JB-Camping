@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { resetUpdateSuccess, updateProfile } from '../actions/userActions';
 
 export const initialState = {
   loading: false,
